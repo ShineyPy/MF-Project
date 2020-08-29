@@ -1,0 +1,36 @@
+{% load static  %}
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="{% static 'css/movies.css'%}">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<h1>Movie Information..</h1>
+{%if movies_list%}
+<table>
+<thead>
+<th>Release Date</th>
+<th>Movie Name</th>
+<th>Hero</th>
+<th>Heroine</th>
+<th>Rating</th>
+</thead>
+{%for movie in movies_list%}
+<tr>
+<td>{{movie.rdate}}</td>
+<td>{{movie.moviename}}</td>
+<td>{{movie.hero}}</td>
+<td>{{movie.heroine}}</td>
+<td>{{movie.rating}}</td>
+</tr>
+{%endfor%}
+</table>
+{%else%}
+<p>Sorry ...! No Movie Found.</p>
+{% endif %}
+</body>
+</html>
